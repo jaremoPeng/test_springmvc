@@ -8,6 +8,18 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
      ">
 
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/inter"/> <!-- path="/**" 表示拦截所有的action -->
+            <bean id="myInterceptor" class="com.jaremo.test_springmvc.interceptor.MyInterceptor"></bean>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/koukuan"/>
+            <bean id="tempInterceptor" class="com.jaremo.test_springmvc.interceptor.TempInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <!--视图解析器-->
     <!--<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/"></property> &lt;!&ndash;设置前缀&ndash;&gt;
