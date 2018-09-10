@@ -20,7 +20,7 @@ public class ViewController {
         ModelAndView mav = new ModelAndView(); // 也可以在构造器里面设置转发的url
         if(errors.hasErrors()){
             mav.setViewName("/view/view.jsp"); // 这里设置转发的url
-            mav.addObject("user",userInfo); // 这个方法使用来设置attribute
+            mav.addObject("phone",userInfo); // 这个方法使用来设置attribute
             return mav;
         }
         return null;
@@ -31,12 +31,12 @@ public class ViewController {
         User user = new User();
         user.setId("36");
         user.setName("东皇");
-        map.put("user" , user);
+        map.put("phone", user);
         return "/view/showuser.jsp";
     }
 
     @RequestMapping("/zhujie")
-    public String case3(@ModelAttribute("user") UserInfo userInfo){
+    public String case3(@ModelAttribute("phone") UserInfo userInfo){
         System.out.println(userInfo.getBirthDate());
         return null;
     }
